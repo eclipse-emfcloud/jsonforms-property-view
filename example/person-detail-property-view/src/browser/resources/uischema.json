@@ -1,0 +1,37 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Label",
+      "text": "Personal details"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/firstName"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/lastName"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/registered"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/birthDate"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/personalId"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/nationality"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/email"
+    }
+  ]
+}

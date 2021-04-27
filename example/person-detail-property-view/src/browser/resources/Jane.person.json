@@ -1,0 +1,8 @@
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "registered": true,
+  "birthDate": "1998-12-24",
+  "nationality": "SRB",
+  "hobbies": []
+}

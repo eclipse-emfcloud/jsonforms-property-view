@@ -1,0 +1,50 @@
+{
+  "name": "@eclipse-emfcloud/modelserver-jsonforms-property-view",
+  "version": "0.7.0",
+  "description": "Theia extension for a modelserver aware JSONForms property view",
+  "license": "(EPL-2.0 OR MIT)",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "theia-extension",
+    "property-view",
+    "jsonforms",
+    "modelserver"
+  ],
+  "author": "EclipseSource",
+  "contributors": [
+    {
+      "name": "Nina Doschek",
+      "email": "ndoschek@eclipsesource.com",
+      "url": "https://www.eclipsesource.com"
+    }
+  ],
+  "homepage": "https://www.eclipse.org/emfcloud/",
+  "bugs": "https://github.com/eclipse-emfcloud/jsonforms-property-view/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eclipse-emfcloud/jsonforms-property-view.git"
+  },
+  "dependencies": {
+    "@eclipse-emfcloud/jsonforms-property-view": "0.7.0",
+    "@eclipse-emfcloud/modelserver-theia": "next"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.1",
+    "typescript": "^3.9.2"
+  },
+  "scripts": {
+    "prepare": "yarn run clean && yarn run build",
+    "clean": "rimraf lib",
+    "lint": "eslint src -c ../.eslintrc.js --ext .ts,.tsx",
+    "build": "tsc && yarn run lint",
+    "watch": "tsc -w"
+  },
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ]
+}

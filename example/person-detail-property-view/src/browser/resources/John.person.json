@@ -1,0 +1,12 @@
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "registered": false,
+  "birthDate": "1999-06-08",
+  "personalId": 4428,
+  "nationality": "AUT",
+  "email": [
+    "john.doe@gmail.com",
+    "john.doe2@sk"
+  ]
+}

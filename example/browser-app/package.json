@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "name": "browser-app",
+  "license": "(EPL-2.0 OR MIT)",
+  "version": "0.7.0",
+  "dependencies": {
+    "@theia/core": "latest",
+    "@theia/editor": "latest",
+    "@theia/filesystem": "latest",
+    "@theia/markers": "latest",
+    "@theia/messages": "latest",
+    "@theia/monaco": "latest",
+    "@theia/navigator": "latest",
+    "@theia/plugin-ext-vscode": "latest",
+    "@theia/preferences": "latest",
+    "@theia/process": "latest",
+    "@theia/property-view": "latest",
+    "@theia/terminal": "latest",
+    "@theia/workspace": "latest",
+    "@eclipse-emfcloud/person-detail-property-view": "0.7.0"
+  },
+  "devDependencies": {
+    "@theia/cli": "latest"
+  },
+  "scripts": {
+    "prepare": "yarn run clean && yarn build",
+    "clean": "theia clean",
+    "build": "theia build --mode development",
+    "start": "theia start --plugins=local-dir:../../plugins --root-dir=../workspace",
+    "watch": "theia build --watch --mode development"
+  },
+  "theia": {
+    "frontend": {
+      "config": {
+        "applicationName": "jsonforms-property-view Browser Example"
+      }
+    }
+  }
+}

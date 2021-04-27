@@ -1,0 +1,61 @@
+{
+  "name": "@eclipse-emfcloud/jsonforms-property-view",
+  "version": "0.7.0",
+  "description": "Theia extension for a generic JSONForms property view",
+  "license": "(EPL-2.0 OR MIT)",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "theia-extension",
+    "property-view",
+    "jsonforms"
+  ],
+  "author": "EclipseSource",
+  "contributors": [
+    {
+      "name": "Nina Doschek",
+      "email": "ndoschek@eclipsesource.com",
+      "url": "https://www.eclipsesource.com"
+    }
+  ],
+  "homepage": "https://www.eclipse.org/emfcloud/",
+  "bugs": "https://github.com/eclipse-emfcloud/jsonforms-property-view/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eclipse-emfcloud/jsonforms-property-view.git"
+  },
+  "dependencies": {
+    "@theia/core": "latest",
+    "@theia/filesystem": "latest",
+    "@theia/property-view": "latest",
+    "@theia/workspace": "^1.12.0-next.159f1759",
+    "@jsonforms/core": "^2.5.0",
+    "@jsonforms/react": "^2.5.0",
+    "@jsonforms/vanilla-renderers": "^2.5.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.1",
+    "typescript": "^3.9.2"
+  },
+  "scripts": {
+    "prepare": "yarn run clean && yarn run build",
+    "clean": "rimraf lib",
+    "lint": "eslint src -c ../.eslintrc.js --ext .ts,.tsx",
+    "build": "tsc && yarn run lint",
+    "watch": "tsc -w"
+  },
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "theiaExtensions": [
+    {
+      "frontend": "lib/browser/frontend-module"
+    }
+  ]
+}

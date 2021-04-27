@@ -1,0 +1,53 @@
+{
+  "private": true,
+  "license": "(EPL-2.0 OR MIT)",
+  "engines": {
+    "yarn": "1.0.x || >=1.2.1",
+    "node": ">=10.11.0 <13"
+  },
+  "scripts": {
+    "prepare": "lerna run prepare && yarn download:plugins",
+    "download:plugins": "theia download:plugins",
+    "watch": "lerna run --parallel watch",
+    "start": "yarn --cwd example/browser-app start"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-header": "^3.0.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-no-null": "^1.0.2",
+    "eslint-plugin-react": "^7.22.0",
+    "lerna": "^2.11.0",
+    "rimraf": "^2.6.1",
+    "typescript": "^3.9.2"
+  },
+  "resolutions": {
+    "**/@theia/core": "^1.12.0",
+    "**/@theia/editor": "^1.12.0",
+    "**/@theia/filesystem": "^1.12.0",
+    "**/@theia/markers": "^1.12.0",
+    "**/@theia/messages": "^1.12.0",
+    "**/@theia/monaco": "^1.12.0",
+    "**/@theia/navigator": "^1.12.0",
+    "**/@theia/plugin-ext-vscode": "^1.12.0",
+    "**/@theia/preferences": "^1.12.0",
+    "**/@theia/process": "^1.12.0",
+    "**/@theia/property-view": "^1.12.0",
+    "**/@theia/terminal": "^1.12.0",
+    "**/@theia/workspace": "^1.12.0",
+    "**/@eclipse-emfcloud/modelserver-theia": "0.8.0-next.f7c04797"
+  },
+  "workspaces": [
+    "jsonforms-property-view",
+    "modelserver-jsonforms-property-view",
+    "example/browser-app",
+    "example/person-detail-property-view"
+  ],
+  "theiaPluginsDir": "plugins",
+  "theiaPlugins": {
+    "vscode-builtin-json": "https://open-vsx.org/api/vscode/json/1.46.1/file/vscode.json-1.46.1.vsix",
+    "vscode-builtin-json-language-features": "https://open-vsx.org/api/vscode/json-language-features/1.46.1/file/vscode.json-language-features-1.46.1.vsix"
+  }
+}
