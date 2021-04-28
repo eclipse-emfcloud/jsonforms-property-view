@@ -9,7 +9,10 @@
     "prepare": "lerna run prepare && yarn download:plugins",
     "download:plugins": "theia download:plugins",
     "watch": "lerna run --parallel watch",
-    "start": "yarn --cwd example/browser-app start"
+    "start": "yarn --cwd example/browser-app start",
+    "publish": "yarn && yarn publish:latest",
+    "publish:latest": "lerna publish",
+    "publish:next": "lerna publish --exact --canary=next --npm-tag=next --yes"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.16.0",
