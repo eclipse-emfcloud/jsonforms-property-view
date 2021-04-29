@@ -1,22 +1,27 @@
-# JSONForms property-view for Eclipse Theia applications
+# JSONForms property-view for Eclipse Theia applications ![build-status](https://img.shields.io/jenkins/build?jobUrl=https://ci.eclipse.org/emfcloud/job/eclipse-emfcloud/job/jsonforms-property-view/job/master/) 
+
 
 [![License: EPL v2.0](https://img.shields.io/badge/License-EPL%20v2.0-yellow.svg)](https://www.eclipse.org/legal/epl-2.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Dependencies:
+## Available via NPM ![build-status-server](https://img.shields.io/jenkins/build?jobUrl=https://ci.eclipse.org/emfcloud/job/deploy-jsonforms-property-view-npm/&label=publish)
+- https://www.npmjs.com/package/@eclipse-emfcloud/jsonforms-property-view
+- https://www.npmjs.com/package/@eclipse-emfcloud/modelserver-jsonforms-property-view
+
+## Dependencies
 [<img src="https://img.shields.io/badge/dynamic/json?color=blue&url=https://raw.githubusercontent.com/eclipse-emfcloud/theia-tree-editor/master/theia-tree-editor/package.json&query=$.dependencies%5B%27%40jsonforms%2Fcore%27%5D&label=JSONForms&logo=JSONForms" alt="JSONForms"/>](https://github.com/eclipsesource/jsonforms)
 [<img src="https://img.shields.io/badge/dynamic/json?color=blue&url=https://raw.githubusercontent.com/eclipse-emfcloud/theia-tree-editor/master/theia-tree-editor/package.json&query=$.dependencies%5B%27%40theia%2Fcore%27%5D&label=Theia&logo=Theia" alt="Theia"/>](https://github.com/eclipse-theia/theia)
 
-This project provides a JSONForms property-view for Eclipse Theia applications
+## Project structure
 
-#### [`@eclipse-emfcloud/jsonforms-property-view`](./jsonforms-property-view/README.md)
+### [`@eclipse-emfcloud/jsonforms-property-view`](./jsonforms-property-view/README.md)
 This package provides a framework to integrate a form-based property-view using JSONForms in an Eclipse Theia application.
-For more details on the Eclipse Theia property-view please visit the [`@theia/property-view` documentation](https://github.com/eclipse-theia/theia/tree/master/packages/property-view).
+For more details on the Eclipse Theia property-view please visit the `@theia/property-view` [documentation](https://github.com/eclipse-theia/theia/tree/master/packages/property-view).
 
-#### [`@eclipse-emfcloud/modelserver-jsonforms-property-view`](./modelserver-jsonforms-property-view/README.md)
+### [`@eclipse-emfcloud/modelserver-jsonforms-property-view`](./modelserver-jsonforms-property-view/README.md)
 This package provides a [Model Server](https://github.com/eclipse-emfcloud/emfcloud-modelserver) aware version of the jsonforms-property-view.
 
-#### [`example/person-detail-property-view`](./example/person-detail-property-view)
+### [`example/person-detail-property-view`](./example/person-detail-property-view)
 This basic development example uses the jsonforms-property-view in a minimal Eclipse Theia browser application.
 
 For more information, please visit the [EMF.cloud Website](https://www.eclipse.org/emfcloud/).

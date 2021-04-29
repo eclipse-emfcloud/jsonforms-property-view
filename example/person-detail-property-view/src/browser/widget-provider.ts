@@ -9,14 +9,11 @@
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
 import { JsonFormsPropertyViewWidgetProvider } from '@eclipse-emfcloud/jsonforms-property-view';
-import { JsonFormsPropertyViewWidget } from '@eclipse-emfcloud/jsonforms-property-view/lib/browser/widget';
 import { Navigatable } from '@theia/core/lib/browser';
-import { inject, injectable } from 'inversify';
+import { injectable } from 'inversify';
 
 @injectable()
 export class ResourcePropertyViewWidgetProvider extends JsonFormsPropertyViewWidgetProvider {
-
-    @inject(JsonFormsPropertyViewWidget) protected jsonFormsWidget: JsonFormsPropertyViewWidget;
 
     readonly id = 'jsonforms';
     readonly label = 'JsonFormsPropertyViewProvider';

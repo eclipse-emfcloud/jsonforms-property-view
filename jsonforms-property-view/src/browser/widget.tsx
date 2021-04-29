@@ -30,17 +30,20 @@ import { JsonFormsPropertyDataService } from './property-data-service';
 @injectable()
 export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyViewContentWidget {
 
-    static readonly ID = 'jsonforms-property-view';
-    static readonly LABEL = 'Properties';
+    protected widgetId = 'jsonforms-property-view';
+    protected widgetLabel = 'Properties';
 
     protected jsonFormsChangeEmitter = new Emitter<Readonly<any>>();
     protected jsonFormsOnChange: (state: Pick<JsonFormsCore, 'data' | 'errors'>) => void;
 
+    protected currentTypeSchema: any;
+    protected currentUiSchema: any;
+
     @postConstruct()
     init(): void {
-        this.id = JsonFormsPropertyViewWidget.ID;
-        this.title.label = JsonFormsPropertyViewWidget.LABEL;
-        this.title.caption = JsonFormsPropertyViewWidget.LABEL;
+        this.id = this.widgetId;
+        this.title.label = this.widgetLabel;
+        this.title.caption = this.widgetLabel;
         this.title.iconClass = 'fa fa-table';
         this.title.closable = true;
 
@@ -64,9 +67,17 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
     async updatePropertyViewContent(propertyDataService?: JsonFormsPropertyDataService, selection?: Object | undefined): Promise<void> {
         if (propertyDataService && selection && JsonFormsPropertyDataService.is(propertyDataService)) {
             const properties = await propertyDataService.providePropertyData(selection);
-            const typeSchema = await propertyDataService.getSchema(selection, properties);
-            const uiSchema = await propertyDataService.getUiSchema(selection, properties);
-            this.renderForms(properties, typeSchema, uiSchema);
+            this.currentTypeSchema = await propertyDataService.getSchema(selection, properties);
+            this.currentUiSchema = await propertyDataService.getUiSchema(selection, properties);
+            this.renderForms(properties, this.currentTypeSchema, this.currentUiSchema);
+        } else {
+            this.renderEmptyForms();
+        }
+    }
+
+    updatePropertyViewData(updatedPropertyData: Object | undefined): void {
+        if (updatedPropertyData) {
+            this.renderForms(updatedPropertyData, this.currentTypeSchema, this.currentUiSchema);
         } else {
             this.renderEmptyForms();
         }
@@ -99,7 +110,7 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
     }
 
     protected getStyleContext(): StyleContext {
-        // Default vanilla styles extend with theia-specific styling
+        // Extend default vanilla styles with theia-specific styling
         return {
             styles: [
                 ...vanillaStyles,
@@ -121,10 +132,6 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
                 }
             ]
         };
-        // TODO
-        // - how to add theia-specific styling for validation span validation in table
-        // - how to add theia-specific styling for delet ebutton in table row
-        // - date control date selection icon: hardly visible in dark theme
     }
 
 }

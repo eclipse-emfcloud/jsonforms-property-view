@@ -8,13 +8,57 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
-import { JsonFormsPropertyViewWidgetProvider } from '@eclipse-emfcloud/jsonforms-property-view';
-import { ModelServerClient } from '@eclipse-emfcloud/modelserver-theia/lib/common';
+import { JsonFormsPropertyViewWidget, JsonFormsPropertyViewWidgetProvider } from '@eclipse-emfcloud/jsonforms-property-view';
+import {
+    ModelServerClient,
+    ModelServerCommand,
+    ModelServerCompoundCommand,
+    ModelServerSubscriptionService
+} from '@eclipse-emfcloud/modelserver-theia/lib/common';
+import { SelectionService } from '@theia/core/lib/common/selection-service';
+import URI from '@theia/core/lib/common/uri';
+import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { inject, injectable } from 'inversify';
 
 @injectable()
 export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyViewWidgetProvider {
 
     @inject(ModelServerClient) protected readonly modelServerClient: ModelServerClient;
+    @inject(WorkspaceService) readonly workspaceService: WorkspaceService;
+    @inject(SelectionService) protected readonly selectionService: SelectionService;
+    @inject(ModelServerSubscriptionService) protected readonly subscriptionService: ModelServerSubscriptionService;
+
+    protected currentPropertyData: any;
+    protected currentModelUri: string;
+
+    protected abstract handleChanges(jsonFormsData: any): void;
+
+    protected getRelativeModelUri(sourceUri: string): string {
+        const workspaceUri = this.workspaceService.getWorkspaceRootUri(new URI(sourceUri));
+        if (workspaceUri) {
+            const workspaceString = workspaceUri.toString().replace('file://', '');
+            const rootUriLength = workspaceString.length;
+            return sourceUri.substring(rootUriLength + 1);
+        }
+        return '';
+    }
+
+    abstract updateContentWidget(selection: any): void;
+
+    protected updateWidgetData(command: ModelServerCommand | ModelServerCompoundCommand): void {
+        if (command.type) {
+            this.updateViaCommand(command as ModelServerCommand, this.currentPropertyData.semanticUri);
+        } else {
+            (command as ModelServerCompoundCommand).commands.forEach((cmd: ModelServerCommand | ModelServerCompoundCommand) => {
+                this.updateWidgetData(cmd);
+            });
+        }
+    }
+
+    protected abstract updateViaCommand(command: ModelServerCommand, semanticUri: string): void;
+
+    provideWidget(selection: Object | undefined): Promise<JsonFormsPropertyViewWidget> {
+        return Promise.resolve(this.jsonFormsWidget);
+    }
 
 }
