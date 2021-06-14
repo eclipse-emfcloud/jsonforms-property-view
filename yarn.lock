@@ -880,10 +880,10 @@
     "@babel/helper-validator-identifier" "^7.14.5"
     to-fast-properties "^2.0.0"
 
-"@eclipse-emfcloud/modelserver-theia@0.8.0-next.f7c04797", "@eclipse-emfcloud/modelserver-theia@next":
-  version "0.8.0-next.f7c04797"
-  resolved "https://registry.yarnpkg.com/@eclipse-emfcloud/modelserver-theia/-/modelserver-theia-0.8.0-next.f7c04797.tgz#900f5a7b36772db8668175aba61920340b25188c"
-  integrity sha512-vjM++U35M11tYrSsCJfQk0KOSDjO4Y5ejexIKUMh9mFjZXDYB0nvA77/Gs89OURddtoWcncQ5WuiBuDCw8shsw==
+"@eclipse-emfcloud/modelserver-theia@next":
+  version "0.8.0-next.0817744e"
+  resolved "https://registry.yarnpkg.com/@eclipse-emfcloud/modelserver-theia/-/modelserver-theia-0.8.0-next.0817744e.tgz#1a48cf60a8bdb03d71b636a1045b98c623aa0a13"
+  integrity sha512-J7tWGJbiD0EViQwTZih4wW2MWuVFLLSuqbxWCfR1+ylKUEXa+Yx3eSXhKbn8yMhQJ8NoMT/taBnLejuyqG6TiQ==
   dependencies:
     "@theia/core" "^1.0.0"
     "@theia/process" "^1.0.0"

@@ -10,9 +10,9 @@
  ********************************************************************************/
 import { JsonFormsPropertyViewWidget, JsonFormsPropertyViewWidgetProvider } from '@eclipse-emfcloud/jsonforms-property-view';
 import {
+    CommandExecutionResult,
     ModelServerClient,
-    ModelServerCommand,
-    ModelServerCompoundCommand,
+    ModelServerMessage,
     ModelServerSubscriptionService
 } from '@eclipse-emfcloud/modelserver-theia/lib/common';
 import { SelectionService } from '@theia/core/lib/common/selection-service';
@@ -45,17 +45,16 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
 
     abstract updateContentWidget(selection: any): void;
 
-    protected updateWidgetData(command: ModelServerCommand | ModelServerCompoundCommand): void {
-        if (command.type) {
-            this.updateViaCommand(command as ModelServerCommand, this.currentPropertyData.semanticUri);
-        } else {
-            (command as ModelServerCompoundCommand).commands.forEach((cmd: ModelServerCommand | ModelServerCompoundCommand) => {
-                this.updateWidgetData(cmd);
-            });
+    protected updateWidgetData(message: ModelServerMessage): void {
+        if (message.type !== 'incrementalUpdate' && message.type !== 'fullUpdate') {
+            return;
+        }
+        if (message.data instanceof CommandExecutionResult) {
+            this.updateViaCommand(message.data, this.currentPropertyData.semanticUri);
         }
     }
 
-    protected abstract updateViaCommand(command: ModelServerCommand, semanticUri: string): void;
+    protected abstract updateViaCommand(commandResult: CommandExecutionResult, semanticUri: string): void;
 
     provideWidget(selection: Object | undefined): Promise<JsonFormsPropertyViewWidget> {
         return Promise.resolve(this.jsonFormsWidget);
