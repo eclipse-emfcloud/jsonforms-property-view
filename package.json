@@ -3,11 +3,10 @@
   "license": "(EPL-2.0 OR MIT)",
   "engines": {
     "yarn": "1.0.x || >=1.2.1",
-    "node": ">=10.11.0 <13"
+    "node": ">=12.14.1 <13"
   },
   "scripts": {
-    "prepare": "lerna run prepare && yarn download:plugins",
-    "download:plugins": "theia download:plugins",
+    "prepare": "lerna run prepare",
     "watch": "lerna run --parallel watch",
     "start": "yarn --cwd example/browser-app start",
     "publish": "yarn && yarn publish:latest",
@@ -27,20 +26,20 @@
     "typescript": "^3.9.2"
   },
   "resolutions": {
-    "**/@theia/core": "^1.12.0",
-    "**/@theia/editor": "^1.12.0",
-    "**/@theia/filesystem": "^1.12.0",
-    "**/@theia/markers": "^1.12.0",
-    "**/@theia/messages": "^1.12.0",
-    "**/@theia/monaco": "^1.12.0",
-    "**/@theia/navigator": "^1.12.0",
-    "**/@theia/plugin-ext-vscode": "^1.12.0",
-    "**/@theia/preferences": "^1.12.0",
-    "**/@theia/process": "^1.12.0",
-    "**/@theia/property-view": "^1.12.0",
-    "**/@theia/terminal": "^1.12.0",
-    "**/@theia/workspace": "^1.12.0",
-    "**/@eclipse-emfcloud/modelserver-theia": "0.8.0-next.f7c04797"
+    "**/@theia/core": "1.13.0",
+    "**/@theia/editor": "1.13.0",
+    "**/@theia/filesystem": "1.13.0",
+    "**/@theia/markers": "1.13.0",
+    "**/@theia/messages": "1.13.0",
+    "**/@theia/monaco": "1.13.0",
+    "**/@theia/navigator": "1.13.0",
+    "**/@theia/plugin-ext-vscode": "1.13.0",
+    "**/@theia/preferences": "1.13.0",
+    "**/@theia/process": "1.13.0",
+    "**/@theia/property-view": "1.13.0",
+    "**/@theia/terminal": "1.13.0",
+    "**/@theia/workspace": "1.13.0",
+    "**/@theia/cli": "1.13.0"
   },
   "workspaces": [
     "jsonforms-property-view",

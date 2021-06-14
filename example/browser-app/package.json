@@ -4,29 +4,30 @@
   "license": "(EPL-2.0 OR MIT)",
   "version": "0.7.0",
   "dependencies": {
-    "@theia/core": "latest",
-    "@theia/editor": "latest",
-    "@theia/filesystem": "latest",
-    "@theia/markers": "latest",
-    "@theia/messages": "latest",
-    "@theia/monaco": "latest",
-    "@theia/navigator": "latest",
-    "@theia/plugin-ext-vscode": "latest",
-    "@theia/preferences": "latest",
-    "@theia/process": "latest",
-    "@theia/property-view": "latest",
-    "@theia/terminal": "latest",
-    "@theia/workspace": "latest",
+    "@theia/core": "^1.0.0",
+    "@theia/editor": "^1.0.0",
+    "@theia/filesystem": "^1.0.0",
+    "@theia/markers": "^1.0.0",
+    "@theia/messages": "^1.0.0",
+    "@theia/monaco": "^1.0.0",
+    "@theia/navigator": "^1.0.0",
+    "@theia/plugin-ext-vscode": "^1.0.0",
+    "@theia/preferences": "^1.0.0",
+    "@theia/process": "^1.0.0",
+    "@theia/property-view": "^1.0.0",
+    "@theia/terminal": "^1.0.0",
+    "@theia/workspace": "^1.0.0",
     "@eclipse-emfcloud/person-detail-property-view": "0.7.0"
   },
   "devDependencies": {
-    "@theia/cli": "latest"
+    "@theia/cli": "^1.0.0"
   },
   "scripts": {
     "prepare": "yarn run clean && yarn build",
+    "download:plugins": "theia download:plugins",
     "clean": "theia clean",
-    "build": "theia build --mode development",
-    "start": "theia start --plugins=local-dir:../../plugins --root-dir=../workspace",
+    "build": "theia build --mode development && yarn download:plugins",
+    "start": "theia start --plugins=local-dir:./plugins --root-dir=../workspace",
     "watch": "theia build --watch --mode development"
   },
   "theia": {
@@ -35,5 +36,10 @@
         "applicationName": "jsonforms-property-view Browser Example"
       }
     }
+  },
+  "theiaPluginsDir": "plugins",
+  "theiaPlugins": {
+    "vscode-builtin-json": "https://open-vsx.org/api/vscode/json/1.46.1/file/vscode.json-1.46.1.vsix",
+    "vscode-builtin-json-language-features": "https://open-vsx.org/api/vscode/json-language-features/1.46.1/file/vscode.json-language-features-1.46.1.vsix"
   }
 }
