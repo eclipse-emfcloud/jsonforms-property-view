@@ -93,9 +93,6 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
                     cells={vanillaCells}
                     renderers={vanillaRenderers}
                     onChange={this.jsonFormsOnChange}
-                    refParserOptions={{
-                        dereference: { circular: 'ignore' }
-                    }}
                 />
             </JsonFormsStyleContext.Provider>,
             this.node
