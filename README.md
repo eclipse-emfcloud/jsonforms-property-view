@@ -4,10 +4,6 @@
 [![License: EPL v2.0](https://img.shields.io/badge/License-EPL%20v2.0-yellow.svg)](https://www.eclipse.org/legal/epl-2.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-For more information, please visit the [EMF.cloud Website](https://www.eclipse.org/emfcloud/).
-
-If you have questions, contact us on our [discussions page](https://github.com/eclipse-emfcloud/emfcloud/discussions) and have a look at our [communication and support options](https://www.eclipse.org/emfcloud/contact/).
-
 ## Available via NPM ![build-status-server](https://img.shields.io/jenkins/build?jobUrl=https://ci.eclipse.org/emfcloud/job/deploy-jsonforms-property-view-npm/&label=publish)
 - https://www.npmjs.com/package/@eclipse-emfcloud/jsonforms-property-view
 - https://www.npmjs.com/package/@eclipse-emfcloud/modelserver-jsonforms-property-view
