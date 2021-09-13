@@ -25,7 +25,7 @@ This package provides a [Model Server](https://github.com/eclipse-emfcloud/emfcl
 This basic development example uses the jsonforms-property-view in a minimal Eclipse Theia browser application.
 
 For more information, please visit the [EMF.cloud Website](https://www.eclipse.org/emfcloud/).
-If you have questions, contact us on our [spectrum chat](https://spectrum.chat/emfcloud/)
+If you have questions, contact us on our [discussions page](https://github.com/eclipse-emfcloud/emfcloud/discussions)
 and have a look at our [communication and support options](https://www.eclipse.org/emfcloud/contact/).
 
 ## Getting started
