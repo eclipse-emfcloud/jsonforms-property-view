@@ -11,12 +11,11 @@
     "property-view",
     "jsonforms"
   ],
-  "author": "EclipseSource",
   "contributors": [
     {
-      "name": "Nina Doschek",
-      "email": "ndoschek@eclipsesource.com",
-      "url": "https://www.eclipsesource.com"
+      "name": "Eclipse emf.cloud Project",
+      "email": "emfcloud-dev@eclipse.org",
+      "url": "https://projects.eclipse.org/projects/ecd.emfcloud"
     }
   ],
   "homepage": "https://www.eclipse.org/emfcloud/",
