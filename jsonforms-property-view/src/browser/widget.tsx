@@ -36,6 +36,9 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
     protected jsonFormsChangeEmitter = new Emitter<Readonly<any>>();
     protected jsonFormsOnChange: (state: Pick<JsonFormsCore, 'data' | 'errors'>) => void;
 
+    protected widgetAttachEmitter = new Emitter<void>();
+    protected widgetDetachEmitter = new Emitter<void>();
+
     protected currentTypeSchema: any;
     protected currentUiSchema: any;
 
@@ -62,6 +65,24 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
 
     get onChange(): Event<Readonly<any>> {
         return this.jsonFormsChangeEmitter.event;
+    }
+
+    protected onAfterAttach(msg: Message): void {
+        super.onAfterAttach(msg);
+        this.widgetAttachEmitter.fire();
+    }
+
+    get onAttach(): Event<void> {
+        return this.widgetAttachEmitter.event;
+    }
+
+    protected onBeforeDetach(msg: Message): void {
+        super.onBeforeDetach(msg);
+        this.widgetDetachEmitter.fire();
+    }
+
+    get onDetach(): Event<void> {
+        return this.widgetDetachEmitter.event;
     }
 
     async updatePropertyViewContent(propertyDataService?: JsonFormsPropertyDataService, selection?: Object | undefined): Promise<void> {
