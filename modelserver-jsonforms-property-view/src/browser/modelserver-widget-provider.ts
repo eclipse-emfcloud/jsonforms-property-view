@@ -18,7 +18,8 @@ import {
 import { SelectionService } from '@theia/core/lib/common/selection-service';
 import URI from '@theia/core/lib/common/uri';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
-import { inject, injectable } from 'inversify';
+import { inject, injectable, postConstruct } from 'inversify';
+import { debounce } from 'lodash';
 
 @injectable()
 export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyViewWidgetProvider {
@@ -30,6 +31,27 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
 
     protected currentPropertyData: any;
     protected currentModelUri: string;
+
+    @postConstruct()
+    init(): void {
+        this.propertyDataServices = this.propertyDataServices.concat(this.contributions.getContributions());
+        this.currentPropertyData = {};
+        this.currentModelUri = '';
+        this.jsonFormsWidget.onChange(
+            debounce((jsonFormsData: any) => {
+                this.handleChanges(jsonFormsData);
+            }, 250)
+        );
+
+        this.jsonFormsWidget.onAttach(() => this.doSubscribe());
+        this.jsonFormsWidget.onDetach(() => this.doUnsubscribe());
+
+        this.subscriptionService.onIncrementalUpdateListener(incrementalUpdate => this.updateWidgetData(incrementalUpdate));
+    }
+
+    protected abstract doSubscribe(): void;
+
+    protected abstract doUnsubscribe(): void;
 
     protected abstract handleChanges(jsonFormsData: any): void;
 

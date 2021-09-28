@@ -25,6 +25,9 @@
     "rimraf": "^2.6.1",
     "typescript": "^3.9.2"
   },
+  "resolutions": {
+    "**/@eclipse-emfcloud/modelserver-theia": "0.8.0-next.6b3138d6"
+  },
   "workspaces": [
     "jsonforms-property-view",
     "modelserver-jsonforms-property-view",
