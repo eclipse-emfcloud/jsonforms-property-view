@@ -47,7 +47,7 @@ export class JsonFormsResourcePropertyDataService implements JsonFormsPropertyDa
         return false;
     }
 
-    async providePropertyData(selection: Object | undefined): Promise<Object | undefined> {
+    async providePropertyData(selection: Object): Promise<Object | undefined> {
         if (this.isNavigatableSelection(selection)) {
             const navigatableUri = (selection as Navigatable).getResourceUri();
             if (navigatableUri && navigatableUri.path.name === 'John') {
@@ -59,14 +59,14 @@ export class JsonFormsResourcePropertyDataService implements JsonFormsPropertyDa
         return undefined;
     }
 
-    getSchema(selection: any, properties?: any): Promise<JsonSchema | undefined> {
+    getSchema(selection: Object, properties?: Object): Promise<JsonSchema | undefined> {
         return Promise.resolve({
             definitions: typeSchema.definitions,
             ...typeSchema.definitions['person']
         });
     }
 
-    getUiSchema(selection: any, properties?: any): Promise<UISchemaElement | undefined> {
+    getUiSchema(selection: Object, properties?: Object): Promise<UISchemaElement | undefined> {
         return Promise.resolve(uiSchema);
     }
 

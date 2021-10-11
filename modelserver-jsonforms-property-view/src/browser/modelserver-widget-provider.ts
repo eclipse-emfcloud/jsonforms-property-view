@@ -53,7 +53,7 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
 
     protected abstract doUnsubscribe(): void;
 
-    protected abstract handleChanges(jsonFormsData: any): void;
+    protected abstract handleChanges(jsonFormsData: Object | undefined): void;
 
     protected getRelativeModelUri(sourceUri: string): string {
         const workspaceUri = this.workspaceService.getWorkspaceRootUri(new URI(sourceUri));
@@ -65,7 +65,7 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
         return '';
     }
 
-    abstract updateContentWidget(selection: any): void;
+    abstract updateContentWidget(selection: Object | undefined): void;
 
     protected updateWidgetData(message: ModelServerMessage): void {
         if (message.type !== 'incrementalUpdate' && message.type !== 'fullUpdate') {
