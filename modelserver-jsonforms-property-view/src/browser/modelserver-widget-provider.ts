@@ -37,16 +37,21 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
         this.propertyDataServices = this.propertyDataServices.concat(this.contributions.getContributions());
         this.currentPropertyData = {};
         this.currentModelUri = '';
-        this.jsonFormsWidget.onChange(
-            debounce((jsonFormsData: any) => {
-                this.handleChanges(jsonFormsData);
-            }, 250)
-        );
+
+        this.registerWidgetChangeHandler();
 
         this.jsonFormsWidget.onAttach(() => this.doSubscribe());
         this.jsonFormsWidget.onDetach(() => this.doUnsubscribe());
 
         this.subscriptionService.onIncrementalUpdateListener(incrementalUpdate => this.updateWidgetData(incrementalUpdate));
+    }
+
+    protected registerWidgetChangeHandler(): void {
+        this.jsonFormsWidget.onChange(
+            debounce((jsonFormsData: Object) => {
+                this.handleChanges(jsonFormsData);
+            }, 250)
+        );
     }
 
     protected abstract doSubscribe(): void;

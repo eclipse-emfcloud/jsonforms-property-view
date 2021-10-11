@@ -76,10 +76,15 @@
     display: flex;
     height: var(--jsonforms-property-view-line-height);
     padding: 0 5px;
-    background: var(--theia-textCodeBlock-background) !important;
+    background: var(--theia-editorWidget-background) !important;
     flex-basis: 100% !important;
     flex-shrink: 1 !important;
     flex-grow: 0 !important;
+}
+
+.jsonforms-property-view .control>input[type="date"]::-webkit-calendar-picker-indicator {
+    /* filter to invert calendar icon of date input field is visible in both themes */
+    filter: invert(0.5);
 }
 
 .jsonforms-property-view .control>select {
