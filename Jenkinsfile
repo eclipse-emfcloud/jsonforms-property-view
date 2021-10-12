@@ -4,7 +4,7 @@ kind: Pod
 spec:
   containers:
   - name: node
-    image: node:12.19.1
+    image: eclipsetheia/theia-blueprint
     tty: true
     resources:
       limits:
@@ -22,10 +22,18 @@ spec:
     - mountPath: "/.yarn"
       name: "yarn-global"
       readOnly: false
+    - name: global-cache
+      mountPath: /.cache     
+    - name: global-npm
+      mountPath: /.npm      
   volumes:
   - name: "jenkins-home"
     emptyDir: {}
   - name: "yarn-global"
+    emptyDir: {}
+  - name: global-cache
+    emptyDir: {}
+  - name: global-npm
     emptyDir: {}
 """
 
@@ -50,7 +58,7 @@ pipeline {
         stage('Build') {
             steps {
                 container('node') {
-                    sh "yarn install"
+                    buildInstaller()
                 }
             }
         }
@@ -60,6 +68,22 @@ pipeline {
             steps {
                 build job: 'deploy-jsonforms-property-view-npm', wait: false
             }
+        }
+    }
+}
+
+def buildInstaller() {
+    int MAX_RETRY = 3
+
+    checkout scm
+    sh "printenv && yarn cache dir"
+    sh "yarn cache clean"
+    try {
+        sh(script: 'yarn --frozen-lockfile --force')
+    } catch(error) {
+        retry(MAX_RETRY) {
+            echo "yarn failed - Retrying"
+            sh(script: 'yarn --frozen-lockfile --force')        
         }
     }
 }
