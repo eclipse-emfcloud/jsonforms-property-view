@@ -45,11 +45,6 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
     @postConstruct()
     init(): void {
         this.id = this.widgetId;
-        this.title.label = this.widgetLabel;
-        this.title.caption = this.widgetLabel;
-        this.title.iconClass = 'fa fa-table';
-        this.title.closable = true;
-
         this.addClass('jsonforms-property-view');
         this.node.tabIndex = 0;
 
@@ -104,7 +99,7 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
         }
     }
 
-    protected renderForms(properties: any, typeSchema: JsonSchema | undefined, uiSchema: UISchemaElement | undefined): void {
+    protected renderForms(properties: Object | undefined, typeSchema: JsonSchema | undefined, uiSchema: UISchemaElement | undefined): void {
         ReactDOM.render(
             <JsonFormsStyleContext.Provider value={this.getStyleContext()}>
                 <JsonForms

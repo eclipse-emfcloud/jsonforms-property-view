@@ -21,8 +21,8 @@ export abstract class ModelServerPropertyDataService implements JsonFormsPropert
     readonly id: string;
     readonly label: string;
 
-    abstract getSchema(selection: any, properties?: any): Promise<JsonSchema | undefined>;
-    abstract getUiSchema(selection: any, properties?: any): Promise<UISchemaElement | undefined>;
+    abstract getSchema(selection: Object | undefined, properties?: Object | undefined): Promise<JsonSchema | undefined>;
+    abstract getUiSchema(selection: Object | undefined, properties?: Object | undefined): Promise<UISchemaElement | undefined>;
 
     abstract canHandleSelection(selection: Object | undefined): number;
     abstract providePropertyData(selection: Object | undefined): Promise<Object | undefined>;

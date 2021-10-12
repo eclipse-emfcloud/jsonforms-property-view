@@ -37,11 +37,8 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
         this.propertyDataServices = this.propertyDataServices.concat(this.contributions.getContributions());
         this.currentPropertyData = {};
         this.currentModelUri = '';
-        this.jsonFormsWidget.onChange(
-            debounce((jsonFormsData: any) => {
-                this.handleChanges(jsonFormsData);
-            }, 250)
-        );
+
+        this.registerWidgetChangeHandler();
 
         this.jsonFormsWidget.onAttach(() => this.doSubscribe());
         this.jsonFormsWidget.onDetach(() => this.doUnsubscribe());
@@ -49,11 +46,19 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
         this.subscriptionService.onIncrementalUpdateListener(incrementalUpdate => this.updateWidgetData(incrementalUpdate));
     }
 
+    protected registerWidgetChangeHandler(): void {
+        this.jsonFormsWidget.onChange(
+            debounce((jsonFormsData: Object) => {
+                this.handleChanges(jsonFormsData);
+            }, 250)
+        );
+    }
+
     protected abstract doSubscribe(): void;
 
     protected abstract doUnsubscribe(): void;
 
-    protected abstract handleChanges(jsonFormsData: any): void;
+    protected abstract handleChanges(jsonFormsData: Object | undefined): void;
 
     protected getRelativeModelUri(sourceUri: string): string {
         const workspaceUri = this.workspaceService.getWorkspaceRootUri(new URI(sourceUri));
@@ -65,7 +70,7 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
         return '';
     }
 
-    abstract updateContentWidget(selection: any): void;
+    abstract updateContentWidget(selection: Object | undefined): void;
 
     protected updateWidgetData(message: ModelServerMessage): void {
         if (message.type !== 'incrementalUpdate' && message.type !== 'fullUpdate') {

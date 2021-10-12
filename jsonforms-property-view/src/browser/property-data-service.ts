@@ -11,6 +11,8 @@
 import { JsonSchema, UISchemaElement } from '@jsonforms/core';
 import { PropertyDataService } from '@theia/property-view/lib/browser/property-data-service';
 
+/* eslint-disable no-redeclare */
+
 export interface JsonFormsPropertyDataService extends PropertyDataService {
     getSchema(selection: any, properties?: any): Promise<JsonSchema | undefined>;
     getUiSchema(selection: any, properties?: any): Promise<UISchemaElement | undefined>;
