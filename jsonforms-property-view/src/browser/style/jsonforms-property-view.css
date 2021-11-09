@@ -51,8 +51,6 @@
     flex: none;
     display: flex;
     align-items: center;
-    text-transform: uppercase;
-    font-size: var(--theia-ui-font-size1);
     margin-bottom: 10px;
     align-items: center;
 }
@@ -63,9 +61,6 @@
 }
 
 .jsonforms-property-view .control>label, .jsonforms-property-view .array-table-layout.control>header>label {
-    text-transform: uppercase;
-    font-weight: normal;
-    font-size: var(--theia-ui-font-size0);
     flex: none;
     display: flex;
     width: var(--jsonforms-property-view-label-width);
