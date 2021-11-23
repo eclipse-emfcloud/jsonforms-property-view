@@ -28,6 +28,10 @@ For more information, please visit the [EMF.cloud Website](https://www.eclipse.o
 If you have questions, contact us on our [discussions page](https://github.com/eclipse-emfcloud/emfcloud/discussions)
 and have a look at our [communication and support options](https://www.eclipse.org/emfcloud/contact/).
 
+## Preview
+
+![Preview of jsonforms-property-view](./documentation/jsonforms-property-view-preview.gif)
+
 ## Getting started
 
 Install [nvm](https://github.com/creationix/nvm#install-script).
