@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2021 EclipseSource and others.
+ * Copyright (c) 2021-2022 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -9,14 +9,14 @@
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
 import { JsonFormsPropertyDataService } from '@eclipse-emfcloud/jsonforms-property-view';
-import { ModelServerClient } from '@eclipse-emfcloud/modelserver-theia/lib/common';
+import { TheiaModelServerClient } from '@eclipse-emfcloud/modelserver-theia';
 import { JsonSchema, UISchemaElement } from '@jsonforms/core';
 import { inject, injectable } from 'inversify';
 
 @injectable()
 export abstract class ModelServerPropertyDataService implements JsonFormsPropertyDataService {
 
-    @inject(ModelServerClient) protected readonly modelServerClient: ModelServerClient;
+    @inject(TheiaModelServerClient) protected readonly modelServerClient: TheiaModelServerClient;
 
     readonly id: string;
     readonly label: string;
