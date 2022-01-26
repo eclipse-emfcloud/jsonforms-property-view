@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2021 EclipseSource and others.
+ * Copyright (c) 2021-2022 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -9,12 +9,9 @@
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
 import { JsonFormsPropertyViewWidget, JsonFormsPropertyViewWidgetProvider } from '@eclipse-emfcloud/jsonforms-property-view';
-import {
-    CommandExecutionResult,
-    ModelServerClient,
-    ModelServerMessage,
-    ModelServerSubscriptionService
-} from '@eclipse-emfcloud/modelserver-theia/lib/common';
+import { CommandExecutionResult, IncrementalUpdateNotification } from '@eclipse-emfcloud/modelserver-client';
+import { TheiaModelServerClient } from '@eclipse-emfcloud/modelserver-theia';
+import { ModelServerSubscriptionService } from '@eclipse-emfcloud/modelserver-theia/lib/browser';
 import { SelectionService } from '@theia/core/lib/common/selection-service';
 import URI from '@theia/core/lib/common/uri';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
@@ -24,7 +21,7 @@ import { debounce } from 'lodash';
 @injectable()
 export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyViewWidgetProvider {
 
-    @inject(ModelServerClient) protected readonly modelServerClient: ModelServerClient;
+    @inject(TheiaModelServerClient) protected readonly modelServerClient: TheiaModelServerClient;
     @inject(WorkspaceService) readonly workspaceService: WorkspaceService;
     @inject(SelectionService) protected readonly selectionService: SelectionService;
     @inject(ModelServerSubscriptionService) protected readonly subscriptionService: ModelServerSubscriptionService;
@@ -72,12 +69,9 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
 
     abstract updateContentWidget(selection: Object | undefined): void;
 
-    protected updateWidgetData(message: ModelServerMessage): void {
-        if (message.type !== 'incrementalUpdate' && message.type !== 'fullUpdate') {
-            return;
-        }
-        if (message.data instanceof CommandExecutionResult) {
-            this.updateViaCommand(message.data, this.currentPropertyData.semanticUri);
+    protected updateWidgetData(notification: IncrementalUpdateNotification): void {
+        if (typeof notification.result !== 'string') {
+            this.updateViaCommand(notification.result, this.currentPropertyData.semanticUri);
         }
     }
 

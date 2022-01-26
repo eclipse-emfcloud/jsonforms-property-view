@@ -4,23 +4,23 @@
   "license": "(EPL-2.0 OR MIT)",
   "version": "0.7.0",
   "dependencies": {
-    "@theia/core": "^1.0.0",
-    "@theia/editor": "^1.0.0",
-    "@theia/filesystem": "^1.0.0",
-    "@theia/markers": "^1.0.0",
-    "@theia/messages": "^1.0.0",
-    "@theia/monaco": "^1.0.0",
-    "@theia/navigator": "^1.0.0",
-    "@theia/plugin-ext-vscode": "^1.0.0",
-    "@theia/preferences": "^1.0.0",
-    "@theia/process": "^1.0.0",
-    "@theia/property-view": "^1.0.0",
-    "@theia/terminal": "^1.0.0",
-    "@theia/workspace": "^1.0.0",
+    "@theia/core": "^1.17.0",
+    "@theia/editor": "^1.17.0",
+    "@theia/filesystem": "^1.17.0",
+    "@theia/markers": "^1.17.0",
+    "@theia/messages": "^1.17.0",
+    "@theia/monaco": "^1.17.0",
+    "@theia/navigator": "^1.17.0",
+    "@theia/plugin-ext-vscode": "^1.17.0",
+    "@theia/preferences": "^1.17.0",
+    "@theia/process": "^1.17.0",
+    "@theia/property-view": "^1.17.0",
+    "@theia/terminal": "^1.17.0",
+    "@theia/workspace": "^1.17.0",
     "@eclipse-emfcloud/person-detail-property-view": "0.7.0"
   },
   "devDependencies": {
-    "@theia/cli": "^1.0.0"
+    "@theia/cli": "^1.17.0"
   },
   "scripts": {
     "prepare": "yarn run clean && yarn build",
