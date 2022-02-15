@@ -57,10 +57,15 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
 
     protected abstract handleChanges(jsonFormsData: Object | undefined): void;
 
+    /** Returns a string representing the model URI relative to the workspace root URI.
+     * @param sourceUri a non-encoded URI string
+     */
     protected getRelativeModelUri(sourceUri: string): string {
         const workspaceUri = this.workspaceService.getWorkspaceRootUri(new URI(sourceUri));
         if (workspaceUri) {
-            const workspaceString = workspaceUri.toString().replace('file://', '');
+            // workspaceUri is encoded by default, e.g. file:///c%3A/Users/ on Windows
+            // use the non-encoded version to correctly match the sourceUri
+            const workspaceString = workspaceUri.toString(true).replace('file://', '');
             const rootUriLength = workspaceString.length;
             return sourceUri.substring(rootUriLength + 1);
         }
