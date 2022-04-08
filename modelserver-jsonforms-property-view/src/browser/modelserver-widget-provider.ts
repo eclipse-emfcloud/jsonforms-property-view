@@ -9,9 +9,9 @@
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
 import { JsonFormsPropertyViewWidget, JsonFormsPropertyViewWidgetProvider } from '@eclipse-emfcloud/jsonforms-property-view';
-import { CommandExecutionResult, IncrementalUpdateNotification } from '@eclipse-emfcloud/modelserver-client';
-import { TheiaModelServerClient } from '@eclipse-emfcloud/modelserver-theia';
-import { ModelServerSubscriptionService } from '@eclipse-emfcloud/modelserver-theia/lib/browser';
+import { IncrementalUpdateNotificationV2, Operations } from '@eclipse-emfcloud/modelserver-client';
+import { TheiaModelServerClientV2 } from '@eclipse-emfcloud/modelserver-theia';
+import { ModelServerSubscriptionServiceV2 } from '@eclipse-emfcloud/modelserver-theia/lib/browser';
 import { SelectionService } from '@theia/core/lib/common/selection-service';
 import URI from '@theia/core/lib/common/uri';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
@@ -21,10 +21,10 @@ import { debounce } from 'lodash';
 @injectable()
 export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyViewWidgetProvider {
 
-    @inject(TheiaModelServerClient) protected readonly modelServerClient: TheiaModelServerClient;
+    @inject(TheiaModelServerClientV2) protected readonly modelServerClient: TheiaModelServerClientV2;
     @inject(WorkspaceService) readonly workspaceService: WorkspaceService;
     @inject(SelectionService) protected readonly selectionService: SelectionService;
-    @inject(ModelServerSubscriptionService) protected readonly subscriptionService: ModelServerSubscriptionService;
+    @inject(ModelServerSubscriptionServiceV2) protected readonly subscriptionService: ModelServerSubscriptionServiceV2;
 
     protected currentPropertyData: any;
     protected currentModelUri: string;
@@ -40,7 +40,7 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
         this.jsonFormsWidget.onAttach(() => this.doSubscribe());
         this.jsonFormsWidget.onDetach(() => this.doUnsubscribe());
 
-        this.subscriptionService.onIncrementalUpdateListener(incrementalUpdate => this.updateWidgetData(incrementalUpdate));
+        this.subscriptionService.onIncrementalUpdateListenerV2(incrementalUpdate => this.updateWidgetData(incrementalUpdate));
     }
 
     protected registerWidgetChangeHandler(): void {
@@ -74,13 +74,20 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
 
     abstract updateContentWidget(selection: Object | undefined): void;
 
-    protected updateWidgetData(notification: IncrementalUpdateNotification): void {
-        if (typeof notification.result !== 'string') {
-            this.updateViaCommand(notification.result, this.currentPropertyData.semanticUri);
+    protected updateWidgetData(notification: IncrementalUpdateNotificationV2): void {
+        if (Operations.isPatch(notification.patch)) {
+            this.handleModelUpdate(notification, this.currentPropertyData.semanticUri);
         }
     }
 
-    protected abstract updateViaCommand(commandResult: CommandExecutionResult, semanticUri: string): void;
+    /**
+     * React to a notification from the _Model Server_ of an incremental update in the
+     * model from which the _Property View_ currently shows a selection.
+     *
+     * @param modelUpdate the incremental model update notification
+     * @param semanticUri the semantic URI of the object currently selected in the _Property View_
+     */
+    protected abstract handleModelUpdate(modelUpdate: IncrementalUpdateNotificationV2, semanticUri: string): void;
 
     provideWidget(selection: Object | undefined): Promise<JsonFormsPropertyViewWidget> {
         return Promise.resolve(this.jsonFormsWidget);

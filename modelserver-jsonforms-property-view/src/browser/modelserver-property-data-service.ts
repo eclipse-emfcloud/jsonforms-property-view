@@ -9,14 +9,14 @@
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
 import { JsonFormsPropertyDataService } from '@eclipse-emfcloud/jsonforms-property-view';
-import { TheiaModelServerClient } from '@eclipse-emfcloud/modelserver-theia';
+import { TheiaModelServerClientV2 } from '@eclipse-emfcloud/modelserver-theia';
 import { JsonSchema, UISchemaElement } from '@jsonforms/core';
 import { inject, injectable } from 'inversify';
 
 @injectable()
 export abstract class ModelServerPropertyDataService implements JsonFormsPropertyDataService {
 
-    @inject(TheiaModelServerClient) protected readonly modelServerClient: TheiaModelServerClient;
+    @inject(TheiaModelServerClientV2) protected readonly modelServerClient: TheiaModelServerClientV2;
 
     readonly id: string;
     readonly label: string;
