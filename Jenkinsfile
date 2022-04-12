@@ -21,19 +21,11 @@ spec:
       readOnly: false
     - mountPath: "/.yarn"
       name: "yarn-global"
-      readOnly: false
-    - name: global-cache
-      mountPath: /.cache     
-    - name: global-npm
-      mountPath: /.npm      
+      readOnly: false   
   volumes:
   - name: "jenkins-home"
     emptyDir: {}
   - name: "yarn-global"
-    emptyDir: {}
-  - name: global-cache
-    emptyDir: {}
-  - name: global-npm
     emptyDir: {}
 """
 
@@ -58,7 +50,16 @@ pipeline {
         stage('Build') {
             steps {
                 container('node') {
-                    buildInstaller()
+                  sh "rm -rf ${YARN_CACHE_FOLDER}"
+                  sh "yarn --ignore-engines --unsafe-perm"
+                }
+            }
+        }
+
+        stage('Codechecks ESLint') {
+            steps {
+                container('node') {
+                    sh "yarn lint -o eslint.xml -f checkstyle"
                 }
             }
         }
@@ -70,20 +71,13 @@ pipeline {
             }
         }
     }
-}
 
-def buildInstaller() {
-    int MAX_RETRY = 3
-
-    checkout scm
-    sh "printenv && yarn cache dir"
-    sh "yarn cache clean"
-    try {
-        sh(script: 'yarn --frozen-lockfile --force')
-    } catch(error) {
-        retry(MAX_RETRY) {
-            echo "yarn failed - Retrying"
-            sh(script: 'yarn --frozen-lockfile --force')        
+    post {
+        always {
+            // Record & publish ESLint issues
+            recordIssues enabledForFailure: true, publishAllIssues: true, aggregatingResults: true, 
+            tools: [esLint(pattern: 'node_modules/**/*/eslint.xml')], 
+            qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
         }
     }
 }
