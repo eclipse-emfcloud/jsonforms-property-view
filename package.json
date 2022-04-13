@@ -7,6 +7,7 @@
   },
   "scripts": {
     "prepare": "lerna run prepare",
+    "lint": "lerna run lint --",
     "watch": "lerna run --parallel watch",
     "start": "yarn --cwd example/browser-app start",
     "publish": "yarn && yarn publish:latest",
