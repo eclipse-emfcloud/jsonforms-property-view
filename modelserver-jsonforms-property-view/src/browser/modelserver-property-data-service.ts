@@ -15,7 +15,6 @@ import { inject, injectable } from 'inversify';
 
 @injectable()
 export abstract class ModelServerPropertyDataService implements JsonFormsPropertyDataService {
-
     @inject(TheiaModelServerClientV2) protected readonly modelServerClient: TheiaModelServerClientV2;
 
     readonly id: string;
@@ -26,6 +25,4 @@ export abstract class ModelServerPropertyDataService implements JsonFormsPropert
 
     abstract canHandleSelection(selection: Object | undefined): number;
     abstract providePropertyData(selection: Object | undefined): Promise<Object | undefined>;
-
 }
-

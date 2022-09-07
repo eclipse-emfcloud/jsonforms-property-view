@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/eslintrc",
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
@@ -7,17 +8,16 @@
       "jsx": true
     }
   },
-  "plugins": [
-    "@typescript-eslint",
-    "header",
-    "no-null",
-    "react"
-  ],
+  "plugins": ["@typescript-eslint", "header", "import", "simple-import-sort", "no-null", "prettier", "react"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended"
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "prettier"
   ],
   "settings": {
     "react": {
@@ -31,5 +31,14 @@
     "browser": true,
     "mocha": true,
     "es2017": true
+  },
+  "ignorePatterns": ["node_modules", "*.d.ts"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
 }

@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2021 EclipseSource and others.
+ * Copyright (c) 2021-2022 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -16,7 +16,6 @@ import { JsonFormsPropertyViewWidget } from './widget';
 
 @injectable()
 export abstract class JsonFormsPropertyViewWidgetProvider extends DefaultPropertyViewWidgetProvider {
-
     @inject(JsonFormsPropertyViewWidget) protected jsonFormsWidget: JsonFormsPropertyViewWidget;
 
     readonly id = 'jsonforms';
@@ -29,7 +28,7 @@ export abstract class JsonFormsPropertyViewWidgetProvider extends DefaultPropert
     }
 
     protected async getJsonFormsPropertyDataService(selection: Object | undefined): Promise<JsonFormsPropertyDataService | undefined> {
-        const dataService = await this.prioritize(selection) ?? this.propertyDataServices[0];
+        const dataService = (await this.prioritize(selection)) ?? this.propertyDataServices[0];
         if (dataService && JsonFormsPropertyDataService.is(dataService)) {
             return dataService as JsonFormsPropertyDataService;
         }
