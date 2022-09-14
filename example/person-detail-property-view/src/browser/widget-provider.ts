@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2021 EclipseSource and others.
+ * Copyright (c) 2021-2022 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -14,7 +14,6 @@ import { injectable } from 'inversify';
 
 @injectable()
 export class ResourcePropertyViewWidgetProvider extends JsonFormsPropertyViewWidgetProvider {
-
     readonly id = 'jsonforms';
     readonly label = 'JsonFormsPropertyViewProvider';
 
@@ -35,5 +34,4 @@ export class ResourcePropertyViewWidgetProvider extends JsonFormsPropertyViewWid
         }
         return false;
     }
-
 }

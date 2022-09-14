@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2021 EclipseSource and others.
+ * Copyright (c) 2021-2022 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -10,13 +10,7 @@
  ********************************************************************************/
 import { JsonFormsCore, JsonSchema, UISchemaElement } from '@jsonforms/core';
 import { JsonForms } from '@jsonforms/react';
-import {
-    JsonFormsStyleContext,
-    StyleContext,
-    vanillaCells,
-    vanillaRenderers,
-    vanillaStyles
-} from '@jsonforms/vanilla-renderers';
+import { JsonFormsStyleContext, StyleContext, vanillaCells, vanillaRenderers, vanillaStyles } from '@jsonforms/vanilla-renderers';
 import { Message } from '@phosphor/messaging/lib';
 import { Emitter, Event } from '@theia/core';
 import { BaseWidget } from '@theia/core/lib/browser';
@@ -29,7 +23,6 @@ import { JsonFormsPropertyDataService } from './property-data-service';
 
 @injectable()
 export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyViewContentWidget {
-
     protected widgetId = 'jsonforms-property-view';
     protected widgetLabel = 'Properties';
 
@@ -116,10 +109,7 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
     }
 
     protected renderEmptyForms(): void {
-        ReactDOM.render(
-            <div className="theia-widget-noInfo">{'No properties available.'}</div>,
-            this.node
-        );
+        ReactDOM.render(<div className="theia-widget-noInfo">{'No properties available.'}</div>, this.node);
     }
 
     protected getStyleContext(): StyleContext {
@@ -146,5 +136,4 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
             ]
         };
     }
-
 }

@@ -20,7 +20,6 @@ import { debounce } from 'lodash';
 
 @injectable()
 export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyViewWidgetProvider {
-
     @inject(TheiaModelServerClientV2) protected readonly modelServerClient: TheiaModelServerClientV2;
     @inject(WorkspaceService) readonly workspaceService: WorkspaceService;
     @inject(SelectionService) protected readonly selectionService: SelectionService;
@@ -92,5 +91,4 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
     provideWidget(selection: Object | undefined): Promise<JsonFormsPropertyViewWidget> {
         return Promise.resolve(this.jsonFormsWidget);
     }
-
 }
