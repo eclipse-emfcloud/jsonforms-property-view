@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@eclipse-emfcloud/person-detail-property-view",
-  "version": "0.7.0",
+  "version": "0.8.0-theia-cr01",
   "description": "JsonForms person details example property view",
   "license": "(EPL-2.0 OR MIT)",
   "keywords": [
@@ -14,7 +14,7 @@
     "src"
   ],
   "dependencies": {
-    "@eclipse-emfcloud/jsonforms-property-view": "0.7.0"
+    "@eclipse-emfcloud/jsonforms-property-view": "^0.8.0-theia-cr01"
   },
   "devDependencies": {
     "rimraf": "^2.6.1",
