@@ -9,8 +9,7 @@
  * SPDX-License-Identifier: EPL-2.0 OR MIT
  ********************************************************************************/
 import { JsonFormsPropertyDataService } from '@eclipse-emfcloud/jsonforms-property-view/lib/browser/property-data-service';
-import { UISchemaElement } from '@jsonforms/core';
-import { JsonSchema } from '@jsonforms/core/lib/models/jsonSchema';
+import { JsonSchema, UISchemaElement } from '@jsonforms/core';
 import { LabelProvider, Navigatable } from '@theia/core/lib/browser';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { inject, injectable } from 'inversify';
@@ -58,14 +57,14 @@ export class JsonFormsResourcePropertyDataService implements JsonFormsPropertyDa
         return undefined;
     }
 
-    getSchema(selection: Object, properties?: Object): Promise<JsonSchema | undefined> {
+    getSchema(_selection: Object, _properties?: Object): Promise<JsonSchema | undefined> {
         return Promise.resolve({
             definitions: typeSchema.definitions,
             ...typeSchema.definitions['person']
         });
     }
 
-    getUiSchema(selection: Object, properties?: Object): Promise<UISchemaElement | undefined> {
+    getUiSchema(_selection: Object, _properties?: Object): Promise<UISchemaElement | undefined> {
         return Promise.resolve(uiSchema);
     }
 }

@@ -17,7 +17,7 @@ import { BaseWidget } from '@theia/core/lib/browser';
 import { PropertyViewContentWidget } from '@theia/property-view/lib/browser/property-view-content-widget';
 import { injectable, postConstruct } from 'inversify';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot, Root } from 'react-dom/client';
 
 import { JsonFormsPropertyDataService } from './property-data-service';
 
@@ -35,10 +35,13 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
     protected currentTypeSchema: any;
     protected currentUiSchema: any;
 
+    protected hostRoot: Root;
+
     @postConstruct()
     init(): void {
         this.id = this.widgetId;
         this.addClass('jsonforms-property-view');
+        this.hostRoot = createRoot(this.node);
         this.node.tabIndex = 0;
 
         this.toDispose.push(this.jsonFormsChangeEmitter);
@@ -93,7 +96,7 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
     }
 
     protected renderForms(properties: Object | undefined, typeSchema: JsonSchema | undefined, uiSchema: UISchemaElement | undefined): void {
-        ReactDOM.render(
+        this.hostRoot.render(
             <JsonFormsStyleContext.Provider value={this.getStyleContext()}>
                 <JsonForms
                     data={properties}
@@ -103,13 +106,12 @@ export class JsonFormsPropertyViewWidget extends BaseWidget implements PropertyV
                     renderers={vanillaRenderers}
                     onChange={this.jsonFormsOnChange}
                 />
-            </JsonFormsStyleContext.Provider>,
-            this.node
+            </JsonFormsStyleContext.Provider>
         );
     }
 
     protected renderEmptyForms(): void {
-        ReactDOM.render(<div className="theia-widget-noInfo">{'No properties available.'}</div>, this.node);
+        this.hostRoot.render(<div className="theia-widget-noInfo">{'No properties available.'}</div>);
     }
 
     protected getStyleContext(): StyleContext {
