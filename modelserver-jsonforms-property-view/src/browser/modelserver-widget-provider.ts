@@ -13,26 +13,24 @@ import { IncrementalUpdateNotificationV2, Operations } from '@eclipse-emfcloud/m
 import { TheiaModelServerClientV2 } from '@eclipse-emfcloud/modelserver-theia';
 import { ModelServerSubscriptionServiceV2 } from '@eclipse-emfcloud/modelserver-theia/lib/browser';
 import { SelectionService } from '@theia/core/lib/common/selection-service';
-import URI from '@theia/core/lib/common/uri';
-import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { inject, injectable, postConstruct } from 'inversify';
 import { debounce } from 'lodash';
+import * as URI from 'urijs';
 
 @injectable()
 export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyViewWidgetProvider {
     @inject(TheiaModelServerClientV2) protected readonly modelServerClient: TheiaModelServerClientV2;
-    @inject(WorkspaceService) readonly workspaceService: WorkspaceService;
     @inject(SelectionService) protected readonly selectionService: SelectionService;
     @inject(ModelServerSubscriptionServiceV2) protected readonly subscriptionService: ModelServerSubscriptionServiceV2;
 
     protected currentPropertyData: any;
-    protected currentModelUri: string;
+    protected currentModelUri: URI | undefined;
 
     @postConstruct()
     init(): void {
         this.propertyDataServices = this.propertyDataServices.concat(this.contributions.getContributions());
         this.currentPropertyData = {};
-        this.currentModelUri = '';
+        this.currentModelUri = undefined;
 
         this.registerWidgetChangeHandler();
 
@@ -55,21 +53,6 @@ export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyVi
     protected abstract doUnsubscribe(): void;
 
     protected abstract handleChanges(jsonFormsData: Object | undefined): void;
-
-    /** Returns a string representing the model URI relative to the workspace root URI.
-     * @param sourceUri a non-encoded URI string
-     */
-    protected getRelativeModelUri(sourceUri: string): string {
-        const workspaceUri = this.workspaceService.getWorkspaceRootUri(new URI(sourceUri));
-        if (workspaceUri) {
-            // workspaceUri is encoded by default, e.g. file:///c%3A/Users/ on Windows
-            // use the non-encoded version to correctly match the sourceUri
-            const workspaceString = workspaceUri.toString(true).replace('file://', '');
-            const rootUriLength = workspaceString.length;
-            return sourceUri.substring(rootUriLength + 1);
-        }
-        return '';
-    }
 
     abstract updateContentWidget(selection: Object | undefined): void;
 

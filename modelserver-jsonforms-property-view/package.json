@@ -28,9 +28,11 @@
   "dependencies": {
     "@eclipse-emfcloud/jsonforms-property-view": "0.7.0",
     "@eclipse-emfcloud/modelserver-client": "next",
-    "@eclipse-emfcloud/modelserver-theia": "next"
+    "@eclipse-emfcloud/modelserver-theia": "next",
+    "urijs": "^1.19.11"
   },
   "devDependencies": {
+    "@types/urijs": "^1.19.19",
     "rimraf": "^2.6.1",
     "typescript": "^4.6.3"
   },
