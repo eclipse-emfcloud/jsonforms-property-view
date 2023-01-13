@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2021-2022 EclipseSource and others.
+ * Copyright (c) 2021-2023 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -13,9 +13,9 @@ import { IncrementalUpdateNotificationV2, Operations } from '@eclipse-emfcloud/m
 import { TheiaModelServerClientV2 } from '@eclipse-emfcloud/modelserver-theia';
 import { ModelServerSubscriptionServiceV2 } from '@eclipse-emfcloud/modelserver-theia/lib/browser';
 import { SelectionService } from '@theia/core/lib/common/selection-service';
+import URI from '@theia/core/lib/common/uri';
 import { inject, injectable, postConstruct } from 'inversify';
 import { debounce } from 'lodash';
-import * as URI from 'urijs';
 
 @injectable()
 export abstract class ModelserverAwareWidgetProvider extends JsonFormsPropertyViewWidgetProvider {
