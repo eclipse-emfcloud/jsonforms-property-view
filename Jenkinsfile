@@ -8,10 +8,10 @@ spec:
     tty: true
     resources:
       limits:
-        memory: "2Gi"
+        memory: "4Gi"
         cpu: "1"
       requests:
-        memory: "2Gi"
+        memory: "4Gi"
         cpu: "1"
     command:
     - cat
@@ -42,8 +42,6 @@ pipeline {
     }
     
     environment {
-        YARN_CACHE_FOLDER = "${env.WORKSPACE}/yarn-cache"
-        SPAWN_WRAP_SHIM_ROOT = "${env.WORKSPACE}"
         EMAIL_TO = "ndoschek+eclipseci@eclipsesource.com, eneufeld+eclipseci@eclipsesource.com"
     }
 
