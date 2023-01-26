@@ -1,4 +1,4 @@
-# JSONForms property-view for Eclipse Theia applications ![build-status](https://img.shields.io/jenkins/build?jobUrl=https://ci.eclipse.org/emfcloud/job/eclipse-emfcloud/job/jsonforms-property-view/job/master/) 
+# Eclipse EMF.cloud JSONForms property-view for Eclipse Theia applications ![build-status](https://img.shields.io/jenkins/build?jobUrl=https://ci.eclipse.org/emfcloud/job/eclipse-emfcloud/job/jsonforms-property-view/job/master/) 
 
 
 [![License: EPL v2.0](https://img.shields.io/badge/License-EPL%20v2.0-yellow.svg)](https://www.eclipse.org/legal/epl-2.0/)
