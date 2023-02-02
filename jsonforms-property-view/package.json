@@ -1,6 +1,6 @@
 {
   "name": "@eclipse-emfcloud/jsonforms-property-view",
-  "version": "0.7.0",
+  "version": "0.8.0-theia-cr02",
   "description": "Theia extension for a generic JSONForms property view",
   "license": "(EPL-2.0 OR MIT)",
   "publishConfig": {
