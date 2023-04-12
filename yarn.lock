@@ -921,29 +921,26 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@eclipse-emfcloud/modelserver-client@0.8.0-next.d9dd44f.86+d9dd44f", "@eclipse-emfcloud/modelserver-client@next":
-  version "0.8.0-next.d9dd44f.86"
-  resolved "https://registry.yarnpkg.com/@eclipse-emfcloud/modelserver-client/-/modelserver-client-0.8.0-next.d9dd44f.86.tgz#c5ecd47d93b2923fe4cc5c998c77dd101d14d680"
-  integrity sha512-jHGIjyVXuXtNvJFsIHYbMtswQLBtJKP+VnI/u5+nXQfOofgR0nAlLs5XcenGT7IqF7uAtrAGFvXK/8EFYlNgBQ==
+"@eclipse-emfcloud/modelserver-client@0.8.0-theia-cr02", "@eclipse-emfcloud/modelserver-client@^0.8.0-theia-cr02":
+  version "0.8.0-theia-cr02"
+  resolved "https://registry.yarnpkg.com/@eclipse-emfcloud/modelserver-client/-/modelserver-client-0.8.0-theia-cr02.tgz#cb68ad0c3567f9daef535736e9eb8c1d051d4d60"
+  integrity sha512-qIAxUVDoN71Km0217ZooGQM9M0a7NZSmcGU1vc7sEhkpP/epgZ0/k1Y3HrlndtXqJffHBfXh5JomkEAHNsezyg==
   dependencies:
     axios "^0.24.0"
     events "^3.3.0"
     fast-json-patch "^3.1.0"
     isomorphic-ws "^4.0.1"
     urijs "^1.19.11"
-    ws "^7.4.6"
+    ws "^7.1.2"
 
-"@eclipse-emfcloud/modelserver-theia@next":
-  version "0.8.0-next.d9dd44f.86"
-  resolved "https://registry.yarnpkg.com/@eclipse-emfcloud/modelserver-theia/-/modelserver-theia-0.8.0-next.d9dd44f.86.tgz#d1c3889ddd2f52a9e15adec3b79907dd94a0e8c6"
-  integrity sha512-Rzrjbf71kq61fniSV5/nsr1LQuhvCvMa1e6vsaBYeMgWqFlYVXC0ALNr4xEHCuxLsXdbsBlcJwAVymYJaPtgOQ==
+"@eclipse-emfcloud/modelserver-theia@0.8.0-theia-cr02":
+  version "0.8.0-theia-cr02"
+  resolved "https://registry.yarnpkg.com/@eclipse-emfcloud/modelserver-theia/-/modelserver-theia-0.8.0-theia-cr02.tgz#eb715ffd57f7e72e9fd1376ea285f2ee1cf8a135"
+  integrity sha512-CVtzF6q0V0X/wm27rYN7nRW2uzkCxE6sRGZUzUfKZbO6ZYknUVV3RgHUtb4gmlHzHH3XM0xToHdylLPm6KC71w==
   dependencies:
-    "@eclipse-emfcloud/modelserver-client" "0.8.0-next.d9dd44f.86+d9dd44f"
-    "@theia/core" "^1.0.0"
-    "@theia/process" "^1.0.0"
-    "@theia/workspace" "^1.0.0"
+    "@eclipse-emfcloud/modelserver-client" "^0.8.0-theia-cr02"
     urijs "^1.19.11"
-    ws "8.5.0"
+    ws "^7.1.2"
 
 "@electron/get@^2.0.0":
   version "2.0.2"
@@ -2348,7 +2345,7 @@
     "@theia/monaco-editor-core" "1.72.3"
     anser "^2.0.1"
 
-"@theia/core@1.33.0", "@theia/core@^1.0.0":
+"@theia/core@1.33.0":
   version "1.33.0"
   resolved "https://registry.yarnpkg.com/@theia/core/-/core-1.33.0.tgz#ac41b2ef3a2081773fd81a7a9cb3c1e4482b76c5"
   integrity sha512-Ul/NPGrykcd86wmFmt/7FlrtYcaImUciAcl+58ZOsiV9KvKZR7mLmWWlFv9Ji9mgkGEPtJ7agKGkTLHZwb7W1w==
@@ -2678,7 +2675,7 @@
     jsonc-parser "^2.2.0"
     p-debounce "^2.1.0"
 
-"@theia/process@1.33.0", "@theia/process@^1.0.0":
+"@theia/process@1.33.0":
   version "1.33.0"
   resolved "https://registry.yarnpkg.com/@theia/process/-/process-1.33.0.tgz#22e0cad8b6da1caaae1feda4605888dbdf42afc0"
   integrity sha512-BtT+lz8mA0YZNXML0WfvhbqENWHnGE4uu81IrFhqQgHpWo8G5MKJWp9j0f+qUE0HpRnhgqoQ2IUAIzxrxpotkw==
@@ -2798,7 +2795,7 @@
   dependencies:
     "@theia/core" "1.33.0"
 
-"@theia/workspace@1.33.0", "@theia/workspace@^1.0.0":
+"@theia/workspace@1.33.0":
   version "1.33.0"
   resolved "https://registry.yarnpkg.com/@theia/workspace/-/workspace-1.33.0.tgz#bcd6975de2613adc7d92a71ebf6e0f6b884c337a"
   integrity sha512-5yt9B5zPXWe+qqqC9rUfTjOSaVIjPhoitT/e3ZQwVeqeqjNjDPYxVS7FHC191sF7vDKn9Vj53CKnYfW+BnQT/A==
@@ -11260,11 +11257,6 @@ write-pkg@^4.0.0:
     type-fest "^0.4.1"
     write-json-file "^3.2.0"
 
-ws@8.5.0:
-  version "8.5.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-8.5.0.tgz#bfb4be96600757fe5382de12c670dab984a1ed4f"
-  integrity sha512-BWX0SWVgLPzYwF8lTzEy1egjhS4S4OEAHfsO8o65WOVsrnSRGaSiUaa9e0ggGlkMTtBlmOpEXiie9RUcBO86qg==
-
 ws@^6.1.0:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/ws/-/ws-6.2.2.tgz#dd5cdbd57a9979916097652d78f1cc5faea0c32e"
@@ -11272,7 +11264,7 @@ ws@^6.1.0:
   dependencies:
     async-limiter "~1.0.0"
 
-ws@^7.1.2, ws@^7.4.6:
+ws@^7.1.2:
   version "7.5.9"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.9.tgz#54fa7db29f4c7cec68b1ddd3a89de099942bb591"
   integrity sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==
