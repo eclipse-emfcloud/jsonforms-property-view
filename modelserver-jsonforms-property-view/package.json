@@ -27,8 +27,8 @@
   },
   "dependencies": {
     "@eclipse-emfcloud/jsonforms-property-view": "0.7.0",
-    "@eclipse-emfcloud/modelserver-client": "0.8.0-theia-cr02",
-    "@eclipse-emfcloud/modelserver-theia": "0.8.0-theia-cr02"
+    "@eclipse-emfcloud/modelserver-client": "0.8.0-theia-cr03",
+    "@eclipse-emfcloud/modelserver-theia": "0.8.0-theia-cr03"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",

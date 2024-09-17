@@ -12,7 +12,6 @@
     "lint": "lerna run lint --",
     "lint:fix": "yarn lint -fix",
     "start": "yarn --cwd example/browser-app start",
-    "upgrade": "yarn upgrade -p \"@theia/.*|@eclipse-emfcloud/modelserver-client|@eclipse-emfcloud/modelserver-theia\"",
     "publish:prepare": "lerna version --no-private --ignore-scripts --yes --no-push",
     "publish:latest": "lerna publish from-git --no-git-reset --no-git-tag-version --no-verify-access --ignore-scripts --no-push",
     "publish:next": "SHA=$(git rev-parse --short HEAD) && lerna publish preminor --exact --canary --preid next.${SHA} --dist-tag next --no-git-reset --no-git-tag-version --no-push --ignore-scripts --yes --no-verify-access"
