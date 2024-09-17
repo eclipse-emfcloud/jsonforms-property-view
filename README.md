@@ -42,12 +42,12 @@ This basic development example uses the jsonforms-property-view in a minimal Ecl
 
 Install [nvm](https://github.com/creationix/nvm#install-script).
 
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
 Install npm and node.
 
-    nvm install 16
-    nvm use 16
+    nvm install 20
+    nvm use 20
 
 Install yarn.
 
