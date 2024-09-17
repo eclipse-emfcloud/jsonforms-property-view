@@ -1,7 +1,7 @@
-# Contributing to Eclipse EMF.cloud JSONForms property-view
+# Contributing to Eclipse EMF Cloud JSONForms property-view
 
-Thank you for your interest in the EMF.cloud JSONForms property-view project!
-We welcome your contributions! Before you dive in, please find the following set of guidelines for contributing to EMF.cloud.
+Thank you for your interest in the EMF Cloud JSONForms property-view project!
+We welcome your contributions! Before you dive in, please find the following set of guidelines for contributing to EMF Cloud.
 
 ## Code of Conduct
 
@@ -36,7 +36,7 @@ Development Process and operates under the terms of the Eclipse IP Policy.
 In order to contribute, please first open an issue in the respective repository or in this repository if it is an project wide concern.
 This issue should describe the bug you intend to fix or the feature you would like to add.
 Once you have your code ready for review, please open a pull request in the respective repository.
-A [committer of the EMF.cloud project](https://projects.eclipse.org/projects/ecd.emfcloud/who) will then review your contribution and help to get it merged.
+A [committer of the EMF Cloud project](https://projects.eclipse.org/projects/ecd.emfcloud/who) will then review your contribution and help to get it merged.
 
 ### Eclipse Contributor Agreement
 
@@ -60,7 +60,7 @@ You must digitally sign the [Eclipse Contributor Agreement (ECA)](https://www.ec
 
 ### Branch names and commit messages
 
-If you are an [elected committer of the EMF.cloud project](https://projects.eclipse.org/projects/ecd.emfcloud/who) please create a branch in the respective repository.
+If you are an [elected committer of the EMF Cloud project](https://projects.eclipse.org/projects/ecd.emfcloud/who) please create a branch in the respective repository.
 Otherwise please fork and create a branch in your fork for the pull request.
 
 The branch name should be in the form `issues/{issue_number}`, e.g. `issues/115`. So please create an issue before creating a pull request.

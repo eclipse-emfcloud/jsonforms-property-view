@@ -1,4 +1,4 @@
-# Eclipse EMF.cloud JSONForms property-view for Eclipse Theia applications
+# Eclipse EMF Cloud JSONForms property-view for Eclipse Theia applications
 
 [![Aim - Framework](https://img.shields.io/badge/Aim-Framework-brightgreen)](https://github.com/eclipsesource/.github/blob/main/repository-classification.md)
 [![Project - Maintenance](https://img.shields.io/badge/Project-Maintenance-872ea4)](https://github.com/eclipsesource/.github/blob/main/repository-classification.md)
@@ -10,7 +10,7 @@ This repository contains a framework. It is meant as a library or platform for i
 
 This repository is in maintenance mode. The maintainers will focus on issues relevant to their adoption use cases only.
 
-For more information, please visit the [EMF.cloud Website](https://www.eclipse.org/emfcloud/).
+For more information, please visit the [EMF Cloud Website](https://www.eclipse.org/emfcloud/).
 
 If you are interested in adopting this framework for your product or enhancing its feature spectrum, please get in contact with us using the [discussions forum](https://github.com/eclipse-emfcloud/emfcloud/discussions) and have a look at our [support options](https://www.eclipse.org/emfcloud/contact/)!
 
