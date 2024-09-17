@@ -1,16 +1,5 @@
 {
   "extends": "./configs/base.tsconfig",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@eclipse-emfcloud/jsonforms-property-view": [
-        "jsonforms-property-view/src/*"
-      ],
-      "@eclipse-emfcloud/modelserver-jsonforms-property-view": [
-        "modelserver-jsonforms-property-view/src/*"
-      ]
-    }
-  },
   "include": [
     "jsonforms-property-view/src",
     "modelserver-jsonforms-property-view/src",
