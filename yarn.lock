@@ -1127,27 +1127,29 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@jsonforms/core@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@jsonforms/core/-/core-3.0.0.tgz#f743c139f2036f461cc52c109e1c3d884bea8e4e"
-  integrity sha512-DcUGLNaeAE411oA8d5dPuPEF2/nDmALAfQRsaA3GPAre2D76kJXyBb8TFMjLMRJCVIR0q5LsiRRdmLnuPVHKqA==
+"@jsonforms/core@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@jsonforms/core/-/core-3.4.0.tgz#00e280b6280c868fe00cb71a9bcd7daa86188b90"
+  integrity sha512-jeU98XLru6G2WVGmJqG19W2rmSLX4im/gOWbptTzQJYj8tS38cqDoYcIRuBmAQYASj2ogJDHQnDgIXARSL8vJA==
   dependencies:
     "@types/json-schema" "^7.0.3"
     ajv "^8.6.1"
     ajv-formats "^2.1.0"
-    lodash "^4.17.15"
+    lodash "^4.17.21"
 
-"@jsonforms/react@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@jsonforms/react/-/react-3.0.0.tgz#73f9f52ec0301d6252b78a1af1c91f51f3da24e6"
-  integrity sha512-Fj/L6hjk9uYSEBQrV7Vyj3ocTYGFelSupAJYmlys/37BPgifzPc+cBQj5bMKzx6pfO8YbmI+Sr3HDs2eNA/LkA==
+"@jsonforms/react@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@jsonforms/react/-/react-3.4.0.tgz#f15cb67314b927a597ce2afae14c35041b4b6846"
+  integrity sha512-uDL1fptUxkemXGLUFaCTPUA3iMvEMUs2g8pQ8da0kPNiH6D1n7oEq3+rsVKMJ1lQLVJZT2MxUJl71DdGJ5OOmA==
   dependencies:
-    lodash "^4.17.15"
+    lodash "^4.17.21"
 
-"@jsonforms/vanilla-renderers@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@jsonforms/vanilla-renderers/-/vanilla-renderers-3.0.0.tgz#9014463db5089afc47c0db55b7bbcf8755219c75"
-  integrity sha512-KrQzotq3bK7q/1fh2/dH3hYinjt9UaI0N52ep7xSerhtcPf9PSBd1yzWNfTmfTAND872Zl7rvYog9Izdcv4mUA==
+"@jsonforms/vanilla-renderers@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@jsonforms/vanilla-renderers/-/vanilla-renderers-3.4.0.tgz#77800aa9aaf3685db6ba4944cdaa5cd71a51b6c6"
+  integrity sha512-mq0/7LamMrmW9P0H/3J0+aVc6Jwtddghz1Tez7ZJv6fuX1hqsg51C/+aXVYbAvnM9oCdsho7h7iY5HphQ9cT2g==
+  dependencies:
+    lodash "^4.17.21"
 
 "@lerna/create@8.1.8":
   version "8.1.8"
@@ -7471,7 +7473,7 @@ lodash.throttle@^4.1.1:
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==
 
-lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.21:
+lodash@^4.17.14, lodash@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
