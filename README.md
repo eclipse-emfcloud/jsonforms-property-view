@@ -53,9 +53,19 @@ Install yarn.
 
     npm install -g yarn
 
-Install dependencies and build framework and example
+### Building and Linting
+
+#### Install dependencies and build the framework and example
 
     yarn
+
+#### Linting with ESLint
+
+    yarn lint
+
+#### Build and Lint Together
+
+    yarn all
 
 ## Run Example
 

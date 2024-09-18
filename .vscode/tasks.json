@@ -4,13 +4,13 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build all packages",
+      "label": "Build and lint all packages",
       "type": "shell",
       "group": {
         "kind": "build",
         "isDefault": true
       },
-      "command": "yarn",
+      "command": "yarn all",
       "presentation": {
         "reveal": "always",
         "panel": "new"
