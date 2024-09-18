@@ -43,6 +43,7 @@ pipeline {
     
     environment {
         EMAIL_TO = "ndoschek+eclipseci@eclipsesource.com, eneufeld+eclipseci@eclipsesource.com"
+        PUPPETEER_SKIP_DOWNLOAD = "true"
     }
 
     stages {
@@ -59,7 +60,7 @@ pipeline {
         stage('Codechecks ESLint') {
             steps {
                 container('node') {
-                    sh "yarn lint -o eslint.xml -f checkstyle"
+                    sh "yarn lint:ci"
                 }
             }
         }
@@ -76,7 +77,7 @@ pipeline {
         always {
             // Record & publish ESLint issues
             recordIssues enabledForFailure: true, publishAllIssues: true, aggregatingResults: true, 
-            tools: [esLint(pattern: 'node_modules/**/*/eslint.xml')], 
+            tools: [esLint(pattern: '**/eslint.xml')],
             qualityGates: [[threshold: 1, type: 'TOTAL', unstable: true]]
         }
         failure {

@@ -6,11 +6,13 @@
     "node": ">=20.0.0"
   },
   "scripts": {
+    "all": "yarn && yarn lint",
     "prepare": "lerna run prepare",
     "watch": "lerna run --parallel watch",
     "build": "lerna run build",
     "lint": "lerna run lint --",
     "lint:fix": "yarn lint -fix",
+    "lint:ci": "yarn lint -o eslint.xml -f checkstyle",
     "start": "yarn --cwd example/browser-app start",
     "publish:prepare": "lerna version --no-private --ignore-scripts --yes --no-push",
     "publish:latest": "lerna publish from-git --no-git-reset --no-git-tag-version --no-verify-access --ignore-scripts --no-push",
