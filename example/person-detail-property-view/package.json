@@ -14,7 +14,7 @@
     "src"
   ],
   "dependencies": {
-    "@eclipse-emfcloud/jsonforms-property-view": "0.7.0",
+    "@eclipse-emfcloud/jsonforms-property-view": "*",
     "@jsonforms/core": "^3.4.0",
     "@jsonforms/react": "^3.4.0",
     "@jsonforms/vanilla-renderers": "^3.4.0"

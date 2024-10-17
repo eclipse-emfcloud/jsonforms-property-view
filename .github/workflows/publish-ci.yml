@@ -1,0 +1,61 @@
+name: Publish JSONForms Property-View Packages
+
+on:
+  workflow_run:
+    workflows: ['CI']
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: write
+  packages: write
+  id-token: write
+
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.0
+        with:
+          fetch-depth: 0 # pulls all history and tags for Lerna to detect which packages changed
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4.0.4
+        with:
+          node-version: 20.x
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install tools and libraries
+        run: sudo apt-get install -y build-essential libx11-dev libxkbfile-dev libsecret-1-dev
+
+      - name: Use Python 3.11
+        uses: actions/setup-python@v5.2.0
+        with:
+          python-version: '3.11'
+
+      - name: Install and Build
+        shell: bash
+        run: |
+          yarn global add node-gyp
+          yarn --skip-integrity-check --network-timeout 100000
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Lint with ESLint
+        run: yarn lint
+
+        # Publish the packages. Ignore lifecycle scripts and add verbose logging
+        # Scripts are ignored because we build and lint before this step
+      - name: Publish packages
+        run: |
+          git config user.email 'eclipse-emfcloud-bot@eclipse.org'
+          git config user.name 'eclipse-emfcloud-bot'
+          yarn lerna publish -y --ignore-scripts --loglevel=verbose
+        env:
+          NPM_CONFIG_PROVENANCE: 'true'
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}

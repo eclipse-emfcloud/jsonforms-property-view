@@ -7,8 +7,9 @@ module.exports = {
     arrowParens: 'avoid',
     overrides: [
         {
-            files: '*.json',
+            files: ['*.json', '*.yaml', '*.yml'],
             options: {
+                printWidth: 100,
                 tabWidth: 2
             }
         },

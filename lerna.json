@@ -1,14 +1,22 @@
 {
-  "version": "0.7.0",
+  "version": "independent",
   "npmClient": "yarn",
   "command": {
     "run": {
       "stream": true
     },
+    "version": {
+      "message": "chore: publish jsonforms-property-view package",
+      "conventionalCommits": true,
+      "changelog": false,
+      "exact": true,
+      "includeMergedTags": true,
+      "private": false
+    },
     "publish": {
-      "forcePublish": true,
-      "skipGit": true,
+      "npmClient": "npm",
       "registry": "https://registry.npmjs.org/"
     }
-  }
+  },
+  "ignoreChanges": ["**/*.md", "**/*.spec.ts", "**/*.spec.tsx"]
 }
