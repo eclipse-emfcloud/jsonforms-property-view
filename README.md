@@ -1,8 +1,7 @@
-# Eclipse EMF Cloud JSONForms property-view for Eclipse Theia applications
+# Eclipse EMF Cloud JSONForms property-view for Eclipse Theia applications [![build-CI](https://img.shields.io/github/actions/workflow/status/eclipse-emfcloud/jsonforms-property-view/build-ci.yml?label=Build%20CI)](https://github.com/eclipse-emfcloud/jsonforms-property-view/actions/workflows/build-ci.yml)
 
 [![Aim - Framework](https://img.shields.io/badge/Aim-Framework-brightgreen)](https://github.com/eclipsesource/.github/blob/main/repository-classification.md)
 [![Project - Maintenance](https://img.shields.io/badge/Project-Maintenance-872ea4)](https://github.com/eclipsesource/.github/blob/main/repository-classification.md)
-![build-status](https://img.shields.io/jenkins/build?jobUrl=https://ci.eclipse.org/emfcloud/job/eclipse-emfcloud/job/jsonforms-property-view/job/master/)
 [![License: EPL v2.0](https://img.shields.io/badge/License-EPL%20v2.0-yellow.svg)](https://www.eclipse.org/legal/epl-2.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -14,7 +13,7 @@ For more information, please visit the [EMF Cloud Website](https://www.eclipse.o
 
 If you are interested in adopting this framework for your product or enhancing its feature spectrum, please get in contact with us using the [discussions forum](https://github.com/eclipse-emfcloud/emfcloud/discussions) and have a look at our [support options](https://www.eclipse.org/emfcloud/contact/)!
 
-## Available via NPM ![build-status-server](https://img.shields.io/jenkins/build?jobUrl=https://ci.eclipse.org/emfcloud/job/deploy-jsonforms-property-view-npm/&label=publish)
+## Available via NPM [![publish-CI](https://img.shields.io/github/actions/workflow/status/eclipse-emfcloud/jsonforms-property-view/publish-ci.yml?label=Publish%20CI)](https://github.com/eclipse-emfcloud/jsonforms-property-view/actions/workflows/publish-ci.yml)
 
 - [`@eclipse-emfcloud/jsonforms-property-view`](https://www.npmjs.com/package/@eclipse-emfcloud/jsonforms-property-view)
 

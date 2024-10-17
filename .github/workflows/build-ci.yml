@@ -1,0 +1,57 @@
+name: JSONForms Property-View Build CI
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/build-ci.yml'
+      - 'example/**'
+      - 'jsonforms-property-view/**'
+      - 'package.json'
+      - '!**/*.md'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/build-ci.yml'
+      - 'example/**'
+      - 'jsonforms-property-view/**'
+      - 'package.json'
+      - '!**/*.md'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.0
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4.0.4
+        with:
+          node-version: 20.x
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install tools and libraries
+        run: sudo apt-get install -y build-essential libx11-dev libxkbfile-dev libsecret-1-dev
+
+      - name: Use Python 3.11
+        uses: actions/setup-python@v5.2.0
+        with:
+          python-version: '3.11'
+
+      - name: Install and Build
+        shell: bash
+        run: |
+          yarn global add node-gyp
+          yarn --skip-integrity-check --network-timeout 100000
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Lint with ESLint
+        run: yarn lint
