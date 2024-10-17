@@ -1,5 +1,7 @@
 # ModelServer aware JSONForms property-view for Eclipse Theia applications
 
+## :warning: **This package is a demo only.**
+
 This package provides a [Model Server](https://github.com/eclipse-emfcloud/emfcloud-modelserver) aware version of the `@eclipse-emfcloud/jsonforms-property-view`.
 
 For more information, please visit the [EMF Cloud Website](https://www.eclipse.org/emfcloud/).

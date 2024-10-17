@@ -36,7 +36,6 @@
   },
   "workspaces": [
     "jsonforms-property-view",
-    "modelserver-jsonforms-property-view",
     "example/browser-app",
     "example/person-detail-property-view"
   ]
