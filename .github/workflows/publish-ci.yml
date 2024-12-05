@@ -2,9 +2,9 @@ name: Publish JSONForms Property-View Packages
 
 on:
   workflow_run:
-    workflows: ['CI']
+    workflows: ['JSONForms Property-View Build CI']
     types: [completed]
-    branches: [main]
+    branches: [master]
 
 permissions:
   contents: write
@@ -19,21 +19,20 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4.2.0
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # pulls all history and tags for Lerna to detect which packages changed
 
       - name: Setup Node 20
-        uses: actions/setup-node@v4.0.4
+        uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Install tools and libraries
         run: sudo apt-get install -y build-essential libx11-dev libxkbfile-dev libsecret-1-dev
 
       - name: Use Python 3.11
-        uses: actions/setup-python@v5.2.0
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -53,9 +52,11 @@ jobs:
         # Scripts are ignored because we build and lint before this step
       - name: Publish packages
         run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
           git config user.email 'eclipse-emfcloud-bot@eclipse.org'
           git config user.name 'eclipse-emfcloud-bot'
           yarn lerna publish -y --ignore-scripts --loglevel=verbose
         env:
           NPM_CONFIG_PROVENANCE: 'true'
-          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPMJS_TOKEN }}

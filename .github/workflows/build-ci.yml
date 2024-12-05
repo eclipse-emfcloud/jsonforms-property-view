@@ -10,7 +10,7 @@ on:
       - '!**/*.md'
   push:
     branches:
-      - main
+      - master
     paths:
       - '.github/workflows/build-ci.yml'
       - 'example/**'
@@ -28,19 +28,18 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.0
+        uses: actions/checkout@v4
 
       - name: Setup Node 20
-        uses: actions/setup-node@v4.0.4
+        uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Install tools and libraries
         run: sudo apt-get install -y build-essential libx11-dev libxkbfile-dev libsecret-1-dev
 
       - name: Use Python 3.11
-        uses: actions/setup-python@v5.2.0
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
