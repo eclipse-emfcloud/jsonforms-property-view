@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2021-2022 EclipseSource and others.
+ * Copyright (c) 2021-2025 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -11,9 +11,8 @@
 import { JsonFormsCore, JsonSchema, UISchemaElement } from '@jsonforms/core';
 import { JsonForms } from '@jsonforms/react';
 import { JsonFormsStyleContext, StyleContext, vanillaCells, vanillaRenderers, vanillaStyles } from '@jsonforms/vanilla-renderers';
-import { Message } from '@phosphor/messaging/lib';
 import { Emitter, Event } from '@theia/core';
-import { BaseWidget } from '@theia/core/lib/browser';
+import { BaseWidget, Message } from '@theia/core/lib/browser';
 import { PropertyViewContentWidget } from '@theia/property-view/lib/browser/property-view-content-widget';
 import { injectable, postConstruct } from 'inversify';
 import * as React from 'react';
