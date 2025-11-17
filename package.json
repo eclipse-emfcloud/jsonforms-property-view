@@ -12,7 +12,8 @@
     "build": "lerna run build",
     "lint": "lerna run lint -- --max-warnings 0",
     "lint:fix": "yarn lint -fix",
-    "start": "yarn --cwd example/browser-app start"
+    "start": "yarn --cwd example/browser-app start",
+    "publish:ci": "lerna publish -y --ignore-scripts --loglevel=verbose"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
