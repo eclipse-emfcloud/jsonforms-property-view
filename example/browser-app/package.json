@@ -4,22 +4,22 @@
   "license": "(EPL-2.0 OR MIT)",
   "version": "0.7.0",
   "dependencies": {
-    "@theia/core": "1.64.1",
-    "@theia/editor": "1.64.1",
-    "@theia/filesystem": "1.64.1",
-    "@theia/markers": "1.64.1",
-    "@theia/messages": "1.64.1",
-    "@theia/monaco": "1.64.1",
-    "@theia/navigator": "1.64.1",
-    "@theia/preferences": "1.64.1",
-    "@theia/process": "1.64.1",
-    "@theia/property-view": "1.64.1",
-    "@theia/terminal": "1.64.1",
-    "@theia/workspace": "1.64.1",
+    "@theia/core": "1.66.2",
+    "@theia/editor": "1.66.2",
+    "@theia/filesystem": "1.66.2",
+    "@theia/markers": "1.66.2",
+    "@theia/messages": "1.66.2",
+    "@theia/monaco": "1.66.2",
+    "@theia/navigator": "1.66.2",
+    "@theia/preferences": "1.66.2",
+    "@theia/process": "1.66.2",
+    "@theia/property-view": "1.66.2",
+    "@theia/terminal": "1.66.2",
+    "@theia/workspace": "1.66.2",
     "@eclipse-emfcloud/person-detail-property-view": "*"
   },
   "devDependencies": {
-    "@theia/cli": "1.64.1"
+    "@theia/cli": "1.66.2"
   },
   "scripts": {
     "prepare": "yarn run clean && yarn build",
