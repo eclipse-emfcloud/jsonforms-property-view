@@ -48,15 +48,9 @@ jobs:
       - name: Lint with ESLint
         run: yarn lint
 
-        # Publish the packages. Ignore lifecycle scripts and add verbose logging
-        # Scripts are ignored because we build and lint before this step
-      - name: Publish packages
+        # Publish the built packages
+      - name: Publish packages to NPM
         run: |
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-          git config user.email 'eclipse-emfcloud-bot@eclipse.org'
-          git config user.name 'eclipse-emfcloud-bot'
-          yarn lerna publish -y --ignore-scripts --loglevel=verbose
+          yarn publish:ci
         env:
           NPM_CONFIG_PROVENANCE: 'true'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPMJS_TOKEN }}
