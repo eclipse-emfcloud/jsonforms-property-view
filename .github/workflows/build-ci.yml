@@ -28,26 +28,21 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - name: Setup Node 20
-        uses: actions/setup-node@v4
+      - name: Use Node.js 24.x
+        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
-          node-version: 20.x
+          node-version: 24.x
 
-      - name: Install tools and libraries
-        run: sudo apt-get install -y build-essential libx11-dev libxkbfile-dev libsecret-1-dev
-
-      - name: Use Python 3.11
-        uses: actions/setup-python@v5
+      - name: Use Python 3.13
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
-          python-version: '3.11'
+          python-version: '3.13'
 
       - name: Install and Build
         shell: bash
-        run: |
-          yarn global add node-gyp
-          yarn --skip-integrity-check --network-timeout 100000
+        run: yarn
         env:
           NODE_OPTIONS: --max_old_space_size=4096
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
