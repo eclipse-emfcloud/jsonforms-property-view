@@ -15,9 +15,9 @@
   ],
   "dependencies": {
     "@eclipse-emfcloud/jsonforms-property-view": "*",
-    "@jsonforms/core": "^3.4.0",
-    "@jsonforms/react": "^3.4.0",
-    "@jsonforms/vanilla-renderers": "^3.4.0"
+    "@jsonforms/core": "^3.8.0",
+    "@jsonforms/react": "^3.8.0",
+    "@jsonforms/vanilla-renderers": "^3.8.0"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",
