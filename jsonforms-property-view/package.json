@@ -28,14 +28,16 @@
     "@jsonforms/core": "^3.0.0",
     "@jsonforms/react": "^3.0.0",
     "@jsonforms/vanilla-renderers": "^3.0.0",
-    "@theia/core": "^1.71.2",
-    "@theia/filesystem": "^1.71.2",
-    "@theia/property-view": "^1.71.2",
-    "@theia/workspace": "^1.71.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@theia/core": "^1.74.1",
+    "@theia/filesystem": "^1.74.1",
+    "@theia/property-view": "^1.74.1",
+    "@theia/workspace": "^1.74.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "rimraf": "^6.0.1",
     "typescript": "^5.6.2"
   },
